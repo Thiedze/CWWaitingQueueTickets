@@ -8,10 +8,8 @@
 	<http auto-config="true">
 
 		<!-- Root -->
-		<intercept-url pattern="/rest/**"
-			access="ROLE_ADMIN,ROLE_AM,ROLE_NOC,ROLE_TKB" />
-		<intercept-url pattern="/app/**"
-			access="ROLE_ADMIN,ROLE_AM,ROLE_NOC,ROLE_TKB,ROLE_NEW,ROLE_SALEPARTNER,ROLE_UPSELL" />
+		<intercept-url pattern="/rest/**" access="ROLE_TKB" />
+		<intercept-url pattern="/app/**" access="ROLE_TKB" />
 
 		<form-login login-page="/login.html" default-target-url="/app"
 			authentication-failure-url="/login.html?error=true" />

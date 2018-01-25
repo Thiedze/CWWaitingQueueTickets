@@ -15,7 +15,7 @@ import de.cw.wqt.dao.WqtDao;
 import de.cw.wqt.service.WqtService;
 
 @Configuration
-@ComponentScan("dg.cw")
+@ComponentScan("de.cw")
 public class WqtConfiguration {
 
     private static final JndiLocatorDelegate jndi = JndiLocatorDelegate.createDefaultResourceRefLocator();
