@@ -1,2 +1,0 @@
-# CWWaitingQueueTickets
-Verteiltes digitales Warteschlangensytem

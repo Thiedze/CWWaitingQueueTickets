@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+
+.background {
+	background: #009fe3;
+	color: #ffffff;
+}
+
+.center {
+	margin: 10%;
+}

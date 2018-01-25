@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="wqtLoginApp" ng-controller="wqtLoginController">
+<!-- loginPageMarker -->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="unauthorized" content="true">
+<title>Anmeldung</title>
+<!-- JQuery -->
+<script src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Angular -->
+<script src="webjars/angularjs/1.4.7/angular.min.js"></script>
+<!-- Controller -->
+<script src="js/loginController.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4 well">
+				<h2 id="h2-login">WQT</h2>
+				<form role="form" method="POST" action="j_spring_security_check" name="loginForm">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Benutzer" name="j_username" ng-model="user" required autofocus>
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control" placeholder="Kennwort" name="j_password" ng-model="password" required>
+					</div>
+					<button id="button-login-login" class="btn btn-default" type="submit" ng-disabled="loginForm.$invalid">Anmelden</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

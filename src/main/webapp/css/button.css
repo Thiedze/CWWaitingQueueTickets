@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+.button {
+	background-color: transparent;
+	text-align: center;
+	display: inline-block;
+	text-decoration: none;
+	border: 1px solid;
+	-webkit-transition: all 0.2s ease-in;
+	-moz-transition: all 0.2s ease-in;
+	-o-transition: all 0.2s ease-in;
+	transition: all 0.2s ease-in;
+	padding: 10px 30px 8px;
+	font-size: 16px;
+	font-family: "proxima-nova", sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.2rem;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.button:hover {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000;
+}
+
+.button-neutral {
+	color: #fff;
+	border-color: #fff;
+}
+
+.button-neutral:hover {
+	color: #fff;
+	background-color: #000;
+}
+
+.button-primary {
+	color: #23849b;
+	border-color: #23849b;
+}
+
+.button-primary:hover {
+	color: #fff;
+	background-color: #23849b;
+}

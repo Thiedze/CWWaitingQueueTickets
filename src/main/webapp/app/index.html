@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wqtApp">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="refresh" content="30">
+<script src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link href="../webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="../webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- Angular -->
+<script src="../webjars/angularjs/1.4.7/angular.min.js"></script>
+<script src="../webjars/angularjs/1.4.7/angular-route.min.js"></script>
+<script src="../webjars/angularjs/1.4.7/angular-resource.min.js"></script>
+<script src="../webjars/angularjs/1.4.7/angular-sanitize.min.js"></script>
+<!-- Custom styles -->
+<link href="../css/button.css" rel="stylesheet" />
+<link href="../css/wqt.css" rel="stylesheet" />
+<link href="../css/snackbar.css" rel="stylesheet" />
+<!-- Controller -->
+<script src="js/app.js"></script>
+<script src="js/service.js"></script>
+<script src="js/controller/wqtController.js"></script>
+<title ng-model="$rootScope.title">WQT</title>
+</head>
+<body class="background" ng-controller="wqtController">
+	<div class="container-fluid">
+		<div class="row-md-12">
+			<h3>Meine Ticket-Nr.</h3>
+			<span>{{myTicket}}</span>
+		</div>
+		<div class="row-md-12 center">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<h1>Aktuelle Ticket-Nr.</h1>
+				<h1 ng-model="currentTicket">{{currentTicket.id}}</h1>
+				<button class="button button-neutral btn-block" type="button" ng-click="getNextTicket()">Neues Ticket</button>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+	<div id="snackbar" ng-class="{ 'show' : showSnackbar}">{{snackbarMessage}}</div>
+	</div>
+</body>
+</html>
