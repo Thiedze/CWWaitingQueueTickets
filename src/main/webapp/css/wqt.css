@@ -3,8 +3,21 @@
 .background {
 	background: #009fe3;
 	color: #ffffff;
+	font-family: "proxima-nova", sans-serif;
+	font-weight: 300;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
 }
 
 .center {
 	margin: 10%;
+	text-align: center;
+}
+
+.current-ticket-number {
+	font-size: 164px;
+}
+
+.header {
+	
 }

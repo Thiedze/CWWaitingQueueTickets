@@ -2,7 +2,6 @@
 
 .button {
 	background-color: transparent;
-	text-align: center;
 	display: inline-block;
 	text-decoration: none;
 	border: 1px solid;
@@ -12,11 +11,8 @@
 	transition: all 0.2s ease-in;
 	padding: 10px 30px 8px;
 	font-size: 16px;
-	font-family: "proxima-nova", sans-serif;
-	font-weight: 300;
-	letter-spacing: 0.2rem;
 	line-height: 1;
-	text-transform: uppercase;
+	text-align: center;
 }
 
 .button:hover {

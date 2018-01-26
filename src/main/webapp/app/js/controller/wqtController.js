@@ -1,16 +1,20 @@
 wqtControllers.controller('wqtController', function($scope, wqtService) {
 
-	wqtService.currentTicket(function(data) {
+	wqtService.getTicket({
+		type : "public"
+	}, function(data) {
 		$scope.currentTicket = data;
 	});
 
-	$scope.myTicket = 'Keine';
+	wqtService.getTicket({
+		type : "private"
+	}, function(data) {
+		$scope.myTicket = data;
+	});
 
 	$scope.getNextTicket = function() {
-		WaitingQueueTicketService.nextTicket(function(data) {
+		wqtService.addTicket(function(data) {
 			$scope.myTicket = data;
-		}, function(error) {
-			this.errorMessage = error;
 		});
 	};
 });

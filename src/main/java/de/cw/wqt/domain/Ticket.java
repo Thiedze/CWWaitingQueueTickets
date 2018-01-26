@@ -14,4 +14,6 @@ public class Ticket {
     private Date start;
 
     private Date end;
+
+    private TicketType type;
 }

@@ -29,20 +29,26 @@
 <body class="background" ng-controller="wqtController">
 	<div class="container-fluid">
 		<div class="row-md-12">
-			<h3>Meine Ticket-Nr.</h3>
-			<span>{{myTicket}}</span>
+			<div class="col-md-5">
+				<h1>Meine Ticket-Nr.</h1>
+				<h2>{{myTicket.id}}</h2>
+			</div>
+			<div class="col-md-7">
+				<h3>IT-OPS Support</h3>
+				<h4>Falls ihr Hilfe von den Jungs des IT-OPS Büros braucht, könnt ihr eine Email an EMAIL-ADDRESSE schreiben, die TELPHONE-NUMBER
+					anrufen oder hier ein "Ticket ziehen"</h4>
+			</div>
 		</div>
 		<div class="row-md-12 center">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<h1>Aktuelle Ticket-Nr.</h1>
-				<h1 ng-model="currentTicket">{{currentTicket.id}}</h1>
-				<button class="button button-neutral btn-block" type="button" ng-click="getNextTicket()">Neues Ticket</button>
+				<h1 class="current-ticket-number" ng-model="currentTicket">{{currentTicket.id}}</h1>
+				<button class="button button-neutral btn-block" type="button" ng-click="getNextTicket()">Ticket ziehen</button>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
 	</div>
 	<div id="snackbar" ng-class="{ 'show' : showSnackbar}">{{snackbarMessage}}</div>
-	</div>
 </body>
 </html>
