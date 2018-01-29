@@ -34,6 +34,7 @@ public class GetTicketCommandMapper {
         getTicketCommand.setStart(ticket.getStart() != null ? ticket.getStart().toString() : null);
         getTicketCommand.setEnd(ticket.getEnd() != null ? ticket.getEnd().toString() : null);
         getTicketCommand.setType(ticket.getType() != null ? ticket.getType().toString() : null);
+        getTicketCommand.setArrival(ticket.getArrival() != null ? ticket.getArrival().toString() : null);
         return getTicketCommand;
     }
 }

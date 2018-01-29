@@ -14,8 +14,9 @@ public class TicketMapper implements RowMapper<Ticket> {
         Ticket ticket = new Ticket();
         ticket.setId(rs.getInt("id"));
         ticket.setName(rs.getString("name"));
-        ticket.setStart(rs.getDate("start"));
-        ticket.setEnd(rs.getDate("end"));
+        ticket.setStart(rs.getTimestamp("start"));
+        ticket.setEnd(rs.getTimestamp("end"));
+        ticket.setArrival(rs.getTimestamp("arrival"));
         return ticket;
     }
 

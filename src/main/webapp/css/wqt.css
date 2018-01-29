@@ -10,7 +10,7 @@
 }
 
 .center {
-	margin: 10%;
+	margin-top: 10%;
 	text-align: center;
 }
 
@@ -18,6 +18,13 @@
 	font-size: 164px;
 }
 
-.header {
-	
+.contact-information {
+	margin-top: 10%;
+}
+
+.truncate {
+	width: 230px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

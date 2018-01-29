@@ -1,6 +1,6 @@
 package de.cw.wqt.domain;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import lombok.Data;
 
@@ -11,9 +11,11 @@ public class Ticket {
 
     private String name;
 
-    private Date start;
+    private Timestamp start;
 
-    private Date end;
+    private Timestamp end;
+
+    private Timestamp arrival;
 
     private TicketType type;
 }

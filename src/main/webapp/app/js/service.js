@@ -5,16 +5,51 @@ wqtServices.factory('wqtService', [ '$resource', function($resource) {
 			getTicket : {
 					method : 'GET',
 					params : {
-						action : 'ticket'
+						action : 'getTicket'
 					},
 					isArray : false
 			},
-			addTicket : {
+			getTickets : {
+					method : 'GET',
+					params : {
+						action : 'tickets'
+					},
+					isArray : true
+			},
+			createTicket : {
 					method : 'POST',
 					params : {
-						action : 'ticket'
+						action : 'createTicket'
 					},
 					isArray : false
+			},
+			getContactInformation : {
+					method : 'GET',
+					params : {
+						action : 'contact_information'
+					},
+					isArray : false
+			},
+			updateTicket : {
+					method : 'PUT',
+					params : {
+						action : 'updateTicket'
+					},
+					isArray : true
+			},
+			checkTickets : {
+					method : 'PATCH',
+					params : {
+						action : 'checkTickets'
+					},
+					isArray : false
+			},
+			startTicket : {
+					method : 'PUT',
+					params : {
+						action : 'startTicket'
+					},
+					isArray : true
 			}
 	});
 } ]);

@@ -7,7 +7,7 @@ angular.module('wqtLoginApp', []).config(function($locationProvider) {
 	var error = $location.search().error;
 	$scope.message = "";
 
-	if (error == "true") {
+	if (error === "true") {
 		$scope.message = "Ungültige Anmeldung";
 	}
 });

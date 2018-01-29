@@ -12,7 +12,9 @@ public class GetTicketCommand {
     private String start;
 
     private String end;
-    
+
+    private String arrival;
+
     private String type;
 
 }

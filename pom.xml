@@ -11,13 +11,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<org.springframework.version>4.1.0.RELEASE</org.springframework.version>
-		<spring-security.version>3.2.3.RELEASE</spring-security.version>
 		<jdk.version>1.8</jdk.version>
 	</properties>
 
@@ -49,47 +47,34 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
-			<version>${org.springframework.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.ws</groupId>
-			<artifactId>spring-ws-core</artifactId>
-			<version>2.2.4.RELEASE</version>
-		</dependency>
 		<!-- Spring security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>${spring-security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.ldap</groupId>
 			<artifactId>spring-ldap-core</artifactId>
-			<!-- version>2.0.4.RELEASE</version -->
-			<version>1.3.2.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-ldap</artifactId>
-			<version>3.1.0.RELEASE</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring-security.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring-security.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.3.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -101,21 +86,18 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
 		</dependency>
 
 		<dependency>
@@ -126,19 +108,16 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.jaxrs</groupId>
 			<artifactId>jackson-jaxrs-json-provider</artifactId>
-			<version>2.7.3</version>
 		</dependency>
 		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
-			<version>20160212</version>
 		</dependency>
 
 		<!-- apache commons -->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-			<version>4.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -158,19 +137,16 @@
 		<dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
-			<version>3.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
-			<version>1.9.3</version>
 		</dependency>
 
 
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.9.9</version>
 		</dependency>
 
 		<!-- Javascript libraries -->
@@ -199,12 +175,10 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>log4j-over-slf4j</artifactId>
-			<version>1.7.21</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.16.16</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -248,7 +222,6 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5</version>
 				<configuration>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
@@ -271,7 +244,6 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.2</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-scm-plugin</artifactId>
