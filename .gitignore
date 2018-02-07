@@ -16,7 +16,6 @@ target/**
 *.project
 .classpath
 .settings/**
-src/test/resources/wqt.properties
-src/test/resources/wqt.properties
+wqt.properties
 .idea/**
 CWWaitingQueueTicket.iml

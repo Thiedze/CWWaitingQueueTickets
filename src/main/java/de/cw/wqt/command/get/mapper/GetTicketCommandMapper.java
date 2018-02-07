@@ -9,7 +9,8 @@ import de.cw.wqt.domain.TicketType;
 
 public class GetTicketCommandMapper {
 
-    private GetTicketCommandMapper() {}
+    private GetTicketCommandMapper() {
+    }
 
     public static Ticket map(GetTicketCommand getTicketCommand) {
         Ticket ticket = new Ticket();
@@ -29,12 +30,14 @@ public class GetTicketCommandMapper {
 
     public static GetTicketCommand map(Ticket ticket) {
         GetTicketCommand getTicketCommand = new GetTicketCommand();
-        getTicketCommand.setId(ticket.getId());
-        getTicketCommand.setName(ticket.getName());
-        getTicketCommand.setStart(ticket.getStart() != null ? ticket.getStart().toString() : null);
-        getTicketCommand.setEnd(ticket.getEnd() != null ? ticket.getEnd().toString() : null);
-        getTicketCommand.setType(ticket.getType() != null ? ticket.getType().toString() : null);
-        getTicketCommand.setArrival(ticket.getArrival() != null ? ticket.getArrival().toString() : null);
+        if (ticket != null) {
+            getTicketCommand.setId(ticket.getId());
+            getTicketCommand.setName(ticket.getName());
+            getTicketCommand.setStart(ticket.getStart() != null ? ticket.getStart().toString() : null);
+            getTicketCommand.setEnd(ticket.getEnd() != null ? ticket.getEnd().toString() : null);
+            getTicketCommand.setType(ticket.getType() != null ? ticket.getType().toString() : null);
+            getTicketCommand.setArrival(ticket.getArrival() != null ? ticket.getArrival().toString() : null);
+        }
         return getTicketCommand;
     }
 }
