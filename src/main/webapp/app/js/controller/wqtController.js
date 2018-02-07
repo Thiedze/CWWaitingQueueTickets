@@ -1,4 +1,12 @@
-wqtControllers.controller('wqtController', function($scope, wqtService) {
+wqtControllers.controller('wqtController', function($scope, wqtService, wqtUserService) {
+
+  wqtUserService.get({}, function (data) {
+          $scope.user = data;
+
+          $scope.user.hasRole = function (roleName) {
+              return this.roles.indexOf(roleName) > -1;
+          };
+      });
 
 	wqtService.getContactInformation({}, function(data) {
 		$scope.contactInformation = data;

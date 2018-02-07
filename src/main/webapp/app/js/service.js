@@ -1,5 +1,9 @@
 var wqtServices = angular.module('wqtServices', [ 'ngResource' ]);
 
+wqtServices.factory('wqtUserService', [ '$resource', function($resource) {
+	return $resource('../rest/user');
+} ]);
+
 wqtServices.factory('wqtService', [ '$resource', function($resource) {
 	return $resource('../rest/wqt/:action', {}, {
 			getTicket : {

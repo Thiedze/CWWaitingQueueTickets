@@ -1,77 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="wqtApp">
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="refresh" content="30">
-<script src="../webjars/jquery/2.2.4/jquery.min.js"></script>
-<!-- Bootstrap -->
-<link href="../webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
-<script src="../webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<!-- Angular -->
-<script src="../webjars/angularjs/1.4.7/angular.min.js"></script>
-<script src="../webjars/angularjs/1.4.7/angular-route.min.js"></script>
-<script src="../webjars/angularjs/1.4.7/angular-resource.min.js"></script>
-<script src="../webjars/angularjs/1.4.7/angular-sanitize.min.js"></script>
-<!-- Custom styles -->
-<link href="../css/button.css" rel="stylesheet" />
-<link href="../css/wqt.css" rel="stylesheet" />
-<link href="../css/snackbar.css" rel="stylesheet" />
-<!-- Controller -->
-<script src="js/app.js"></script>
-<script src="js/service.js"></script>
-<script src="js/controller/wqtController.js"></script>
-<title ng-model="$rootScope.title">WQT</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="refresh" content="30">
+    <script src="../webjars/jquery/2.2.4/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <link href="../webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="../webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Angular -->
+    <script src="../webjars/angularjs/1.4.7/angular.min.js"></script>
+    <script src="../webjars/angularjs/1.4.7/angular-route.min.js"></script>
+    <script src="../webjars/angularjs/1.4.7/angular-resource.min.js"></script>
+    <script src="../webjars/angularjs/1.4.7/angular-sanitize.min.js"></script>
+    <!-- Custom styles -->
+    <link href="../css/button.css" rel="stylesheet"/>
+    <link href="../css/wqt.css" rel="stylesheet"/>
+    <link href="../css/snackbar.css" rel="stylesheet"/>
+    <!-- Controller -->
+    <script src="js/app.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/controller/wqtController.js"></script>
+    <title ng-model="$rootScope.title">WQT</title>
 </head>
 <body class="background" ng-controller="wqtController">
-	<div class="container-fluid">
-		<div class="col-md-3">
-			<h1>Meine Ticket-Nr.</h1>
-			<h2 ng-if="myTicket.id !== undefined && myTicket.id !== null">{{myTicket.id}}</h2>
-			<h2 ng-if="myTicket.id === undefined || myTicket.id === null">Kein Ticket gezogen</h2>
-			<div ng-if="(myTicket.arrival != null) && (myTicket.id !== undefined && myTicket.id !== null) && (10 - pickUpPeriod.getMinutes() > 0)">
-				Du hast noch {{10 - pickUpPeriod.getMinutes()}} Minuten Zeit um vorbei zu schauen.
-				<div>Danach musst du eventuell ein neues Ticket ziehen.</div>
-			</div>
-			<div ng-if="(myTicket.arrival != null) &&  (myTicket.id !== undefined && myTicket.id !== null) && (10 - pickUpPeriod.getMinutes() <= 0)">Bitte
-				ziehe dir ein Ticket.</div>
-		</div>
-		<div class="col-md-6 center">
-			<h1>Aktuelle Ticket-Nr.</h1>
-			<h1 class="current-ticket-number" ng-model="currentTicket">{{currentTicket.id}}</h1>
-			<button class="button button-neutral button-center" type="button" ng-click="createTicket()">Ticket ziehen</button>
-		</div>
-		<div class="col-md-3">
-			<h1>Warteschlange</h1>
-			<div ng-repeat="ticket in tickets">
-				<div class="row">
-					<div class="col-md-6">{{ticket.id}} {{ticket.name}}</div>
-					<div class="col-md-6">
-						<button class="button button-neutral pull-right" type="button" ng-click="updateTicket()" ng-if="$index === 0 && ticket.arrival">Ticket
-							schließen</button>
-						<button class="button button-neutral pull-right" type="button" ng-click="startTicket()" ng-if="$index === 0 && !ticket.arrival">Ticket
-							annehmen</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid contact-information" ng-if="false">
-		<div class="row-md-12">
-			<h3>IT-OPS Support</h3>
-			<h4>
-				Falls ihr Hilfe von den Jungs des IT-OPS Büros braucht, könnt ihr
-				<ul>
-					<li ng-show="contactInformation.email">eine Email an {{contactInformation.email}} schreiben</li>
-					<li ng-show="contactInformation.phoneNumber">die {{contactInformation.phoneNumber}} anrufen</li>
-					<li>oder hier ein "Ticket ziehen" und, wenn ihr dran seid, persönlich vorbeikommen</li>
-				</ul>
-			</h4>
-		</div>
-	</div>
-	<div id="snackbar" ng-class="{ 'show' : showSnackbar}">{{snackbarMessage}}</div>
+<div class="container-fluid">
+    <div class="col-md-3">
+        <h1>Meine Ticket-Nr.</h1>
+        <h2 ng-if="myTicket.id !== undefined && myTicket.id !== null">{{myTicket.id}}</h2>
+        <h2 ng-if="myTicket.id === undefined || myTicket.id === null">Kein Ticket gezogen</h2>
+        <div ng-if="(myTicket.arrival != null) && (myTicket.id !== undefined && myTicket.id !== null) && (10 - pickUpPeriod.getMinutes() > 0)">
+            Du hast noch {{10 - pickUpPeriod.getMinutes()}} Minuten Zeit um vorbei zu schauen.
+            <div>Danach musst du eventuell ein neues Ticket ziehen.</div>
+        </div>
+        <div ng-if="(myTicket.arrival != null) &&  (myTicket.id !== undefined && myTicket.id !== null) && (10 - pickUpPeriod.getMinutes() <= 0)">Bitte
+            ziehe dir ein Ticket.
+        </div>
+    </div>
+    <div class="col-md-6 center">
+        <h1>Aktuelle Ticket-Nr.</h1>
+        <h1 class="current-ticket-number" ng-model="currentTicket">{{currentTicket.id}}</h1>
+        <button class="button button-neutral button-center" type="button" ng-click="createTicket()">Ticket ziehen</button>
+    </div>
+    <div class="col-md-3" ng-if="user.hasRole('ROLE_NEW')">
+        <h1>Warteschlange</h1>
+        <div ng-repeat="ticket in tickets">
+            <div class="row">
+                <div class="col-md-6">{{ticket.id}} {{ticket.name}}</div>
+                <div class="col-md-6">
+                    <button class="button button-neutral pull-right" type="button" ng-click="updateTicket()" ng-if="$index === 0 && ticket.arrival">
+                        Ticket
+                        schließen
+                    </button>
+                    <button class="button button-neutral pull-right" type="button" ng-click="startTicket()" ng-if="$index === 0 && !ticket.arrival">
+                        Ticket
+                        annehmen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid contact-information" ng-if="false">
+    <div class="row-md-12">
+        <h3>IT-OPS Support</h3>
+        <h4>
+            Falls ihr Hilfe von den Jungs des IT-OPS Büros braucht, könnt ihr
+            <ul>
+                <li ng-show="contactInformation.email">eine Email an {{contactInformation.email}} schreiben</li>
+                <li ng-show="contactInformation.phoneNumber">die {{contactInformation.phoneNumber}} anrufen</li>
+                <li>oder hier ein "Ticket ziehen" und, wenn ihr dran seid, persönlich vorbeikommen</li>
+            </ul>
+        </h4>
+    </div>
+</div>
+<div id="snackbar" ng-class="{ 'show' : showSnackbar}">{{snackbarMessage}}</div>
 </body>
 </html>

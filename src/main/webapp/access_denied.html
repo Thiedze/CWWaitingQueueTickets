@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="unauthorized" content="true">
-    <title>Anmeldung</title>
+    <title>CIM Zugang gespert</title>
     <!-- JQuery -->
     <script src="webjars/jquery/2.2.4/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -24,20 +23,11 @@
 </head>
 <body class="background">
 <div class="container">
-    <div ng-show="message && message.length>0" class="alert alert-danger" role="alert">{{message}}</div>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <h2 id="h2-login" class="header">WQT</h2>
-            <form role="form" method="POST" action="j_spring_security_check" name="loginForm">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Benutzer" name="j_username" ng-model="user" required autofocus>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Kennwort" name="j_password" ng-model="password" required>
-                </div>
-                <button id="button-login-login" class="button button-neutral btn-block" type="submit" ng-disabled="loginForm.$invalid">Anmelden
-                </button>
-            </form>
+            <h2 id="h2-access_denied">WQT</h2>
+            <strong>Sie sind nicht berechtigt. Bitten Sie den Administrator nach passenden Berechtigung.</strong>
+            <a href="/login.html" id="button-login-login" class="button button-neutral btn-block">Erneut anmelden</a>
         </div>
     </div>
 </div>

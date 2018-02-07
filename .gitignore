@@ -18,3 +18,5 @@ target/**
 .settings/**
 src/test/resources/wqt.properties
 src/test/resources/wqt.properties
+.idea/**
+CWWaitingQueueTicket.iml
