@@ -17,6 +17,13 @@
         <org.slf4j.version>1.7.13</org.slf4j.version>
     </properties>
 
+    <scm>
+        <connection>scm:git:ssh://git@github.com:Thiedze/CWWaitingQueueTickets.git</connection>
+        <developerConnection>scm:git:git@github.com:Thiedze/CWWaitingQueueTickets.git</developerConnection>
+        <url>https://github.com/Thiedze/CWWaitingQueueTickets.git</url>
+        <tag>HEAD</tag>
+    </scm>
+
     <dependencies>
 
         <dependency>
