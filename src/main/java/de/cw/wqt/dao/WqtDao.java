@@ -28,41 +28,48 @@ public class WqtDao extends JdbcDaoSupport {
         }
     }
 
+    public void insertTicket(User user) {
+        getJdbcTemplate().update("INSERT INTO ticket (name, start) VALUES (?, ?)", user.getFullName(), new Date());
+    }
+
     public Ticket getPublicTicket() {
-        List<Ticket> tickets = getJdbcTemplate().query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE arrival IS NOT NULL ORDER BY id desc LIMIT 1",
-                        new Object[] {}, new TicketMapper());
+        List<Ticket> tickets = getJdbcTemplate()
+            .query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE arrival IS NOT NULL ORDER BY id DESC LIMIT 1",
+                new Object[]{}, new TicketMapper());
         return getTicketFromList(tickets);
     }
 
     public Ticket getPrivateTicket(User user) {
         List<Ticket> tickets =
-                        getJdbcTemplate().query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE name like ? AND end IS NULL ORDER BY id desc LIMIT 1",
-                                        new Object[] { user.getFullName() }, new TicketMapper());
+            getJdbcTemplate()
+                .query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE name like ? AND end IS NULL ORDER BY id LIMIT 1",
+                    new Object[]{user.getFullName()}, new TicketMapper());
         return getTicketFromList(tickets);
     }
 
     public List<Ticket> getTickets() {
-        return getJdbcTemplate().query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE end IS NULL ORDER BY id", new Object[] {}, new TicketMapper());
-    }
-
-    public void insertTicket(User user) {
-        getJdbcTemplate().update("INSERT INTO ticket (name, start) VALUES (?, ?)", user.getFullName(), new Date());
+        return getJdbcTemplate()
+            .query("SELECT " + TICKET_FIELDS + " FROM ticket WHERE end IS NULL ORDER BY id", new Object[]{}, new TicketMapper());
     }
 
     public void startNextArrival() {
-        getJdbcTemplate().update("UPDATE ticket SET arrival=? WHERE end is NULL ORDER BY id LIMIT 1", new Date());
+        getJdbcTemplate()
+            .update("UPDATE ticket SET arrival=? WHERE end is NULL AND arrival is NULL ORDER BY id LIMIT 1", new Date());
     }
 
     public void closeAllTickets(User user) {
-        getJdbcTemplate().update("UPDATE ticket SET end=?, arrival=? WHERE name like ?", new Date(), new Date(), user.getFullName());
+        getJdbcTemplate()
+            .update("UPDATE ticket SET start=?, end=? WHERE name like ?", new Date(), new Date(), user.getFullName());
     }
 
     public void closeOldestTicket() {
-        getJdbcTemplate().update("UPDATE ticket SET end=? WHERE end is NULL ORDER BY id LIMIT 1", new Date());
+        getJdbcTemplate()
+            .update("UPDATE ticket SET end=? WHERE end is NULL AND arrival IS NOT NULL ORDER BY id LIMIT 1", new Date());
     }
 
     public void closeTicketsNotArriveled() {
-        getJdbcTemplate().update("UPDATE ticket SET end=? WHERE end IS NULL AND arrival < DATE_SUB(NOW(),INTERVAL 10 MINUTE)", new Date());
+        getJdbcTemplate()
+            .update("UPDATE ticket SET end=? WHERE end IS NULL AND arrival < DATE_SUB(NOW(),INTERVAL 10 MINUTE)", new Date());
     }
 
 }
