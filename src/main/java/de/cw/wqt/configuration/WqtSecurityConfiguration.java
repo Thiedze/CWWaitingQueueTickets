@@ -22,7 +22,6 @@ import org.springframework.security.ldap.userdetails.LdapAuthoritiesPopulator;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-@Slf4j
 @Configuration
 @ImportResource({ "classpath:/ldap-security.xml" })
 public class WqtSecurityConfiguration {
@@ -44,7 +43,6 @@ public class WqtSecurityConfiguration {
             public Collection<? extends GrantedAuthority> mapAuthorities(Collection<? extends GrantedAuthority> authorities) {
                 Collection<? extends GrantedAuthority> mappedAuthorities = authorities.stream().map(authority -> {
                     String role = authority.getAuthority();
-                    log.info(role);
                     return new SimpleGrantedAuthority(StringUtils.replaceEach(role, new String[] { "CIM-", "-USERS" }, new String[] { "", "" }));
                 }).collect(Collectors.toList());
                 return mappedAuthorities;

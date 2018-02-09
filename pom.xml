@@ -14,7 +14,6 @@
         <org.springframework.version>4.2.3.RELEASE</org.springframework.version>
         <spring-security.version>3.2.6.RELEASE</spring-security.version>
         <jackson.version>2.6.3</jackson.version>
-        <org.slf4j.version>1.7.13</org.slf4j.version>
     </properties>
 
     <scm>
@@ -185,22 +184,6 @@
             <version>1.16.16</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>${org.slf4j.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -315,6 +298,53 @@
                             </pluginExecution>
                         </pluginExecutions>
                     </lifecycleMappingMetadata>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestSections>
+                            <manifestSection>
+                                <name>Maven</name>
+                                <manifestEntries>
+                                    <Implementation-Title>${project.name}</Implementation-Title>
+                                    <Implementation-Version>${project.version}</Implementation-Version>
+                                    <Implementation-Vendor-Id>${project.groupId}</Implementation-Vendor-Id>
+                                    <Implementation-Vendor>${project.organization.name}</Implementation-Vendor>
+                                    <War-File>${project.artifactId}-${project.version}.war</War-File>
+                                    <Maven-Version>${maven.version}</Maven-Version>
+                                </manifestEntries>
+                            </manifestSection>
+                            <manifestSection>
+                                <name>Build</name>
+                                <manifestEntries>
+                                    <Build-Time>${maven.build.timestamp}</Build-Time>
+                                    <Build-OS-Name>${os.name}</Build-OS-Name>
+                                    <Build-OS-Arch>${os.arch}</Build-OS-Arch>
+                                    <Build-OS-Version>${os.version}</Build-OS-Version>
+                                    <Build-Vendor>${java.vendor}</Build-Vendor>
+                                </manifestEntries>
+                            </manifestSection>
+                            <manifestSection>
+                                <name>Virtual Machine</name>
+                                <manifestEntries>
+                                    <Java-VM-Spec-Version>${java.vm.specification.version}</Java-VM-Spec-Version>
+                                    <Java-VM-Spec-Vendor>${java.vm.specification.vendor}</Java-VM-Spec-Vendor>
+                                    <Java-VM-Spec-Name>${java.vm.specification.name}</Java-VM-Spec-Name>
+                                    <Java-VM-Version>${java.vm.version}</Java-VM-Version>
+                                    <Java-VM-Vendor>${java.vm.vendor}</Java-VM-Vendor>
+                                    <Java-VM-Name>${java.vm.name}</Java-VM-Name>
+                                </manifestEntries>
+                            </manifestSection>
+                        </manifestSections>
+                    </archive>
                 </configuration>
             </plugin>
 
