@@ -1,2 +1,2 @@
 # CWWaitingQueueTickets
-Verteiltes digitales Warteschlangensytem
+Distributed digital ticket queuing system
